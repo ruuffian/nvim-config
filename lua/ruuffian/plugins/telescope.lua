@@ -1,7 +1,7 @@
 return {
   'nvim-telescope/telescope.nvim',
 
-  depencies = {
+  dependencies = {
     'plenary',
     'devicons',
   },
