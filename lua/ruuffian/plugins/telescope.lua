@@ -15,6 +15,6 @@ return {
     set('n', '<leader>ps', function()
       builtin.grep_string({ search = vim.fn.input('grep ')});
     end, {})
-    set('n', '<C-s>', builtin.live_grep, {})
+    set('n', '<C-f>', builtin.live_grep, {})
   end
 }
