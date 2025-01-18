@@ -20,7 +20,7 @@ vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 return {
   {
     'catppuccin/nvim',
-    name = 'catppuccin',
+    name = 'catpuccin',
     lazy = false,
     priority = 1000,
     config = function()
@@ -35,7 +35,7 @@ return {
             enabled = true
           }
         }
-      })
+    })
       vim.cmd('colorscheme catppuccin')
     end
   }
