@@ -1,1 +1,1 @@
-require('ruuffian')
+require 'ruuffian'

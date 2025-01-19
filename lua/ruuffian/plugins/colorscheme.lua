@@ -1,22 +1,6 @@
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
---return {
---  {
---    'folke/tokyonight.nvim',
---    lazy = false,
---    priority = 1000,
---    opts = {
---      style = 'storm',
---      transparent = true,
---    },
---    config = function()
---      require('tokyonight')
---      vim.cmd('colorscheme tokyonight')
---    end
---  }
---}
-
 return {
   {
     'catppuccin/nvim',
@@ -24,7 +8,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require('catppuccin').setup({
+      require 'catppuccin'.setup {
         flavour = 'frappe',
         background = {
           dark = "frappe"
@@ -35,8 +19,8 @@ return {
             enabled = true
           }
         }
-    })
-      vim.cmd('colorscheme catppuccin')
+      }
+      vim.cmd 'colorscheme catppuccin'
     end
   }
 }
