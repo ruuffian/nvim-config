@@ -28,3 +28,12 @@ set('i', '<C-c>', '<Esc>', {})
 
 -- Random stuff
 set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+
+-- LSP
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = ruuffian,
+  callback = function(e)
+    local opts = { buffer = e.buf }
+  end
+})
