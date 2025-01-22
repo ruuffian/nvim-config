@@ -7,3 +7,4 @@ everytime I ssh to a new machine
 
 - luarocks
 - ripgrep
+- sharkdp/fd

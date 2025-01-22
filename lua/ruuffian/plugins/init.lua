@@ -7,4 +7,11 @@ return {
     'nvim-tree/nvim-web-devicons',
     name = 'devicons',
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      'devicons',
+    },
+    opts = {},
+  }
 }

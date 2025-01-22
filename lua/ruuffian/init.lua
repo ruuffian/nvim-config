@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.editorconfig = false
 
-require('ruuffian.remap')
-require('ruuffian.set')
+require 'ruuffian.remap'
+require 'ruuffian.set'
 
-require('ruuffian.lazy_init')
+require 'ruuffian.lazy_init'
