@@ -1,5 +1,5 @@
 local installed = {
-  'lua', 'php', 'phpdoc', 'vim', 'vimdoc', 'bash', 'javascript', 
+  'lua', 'php', 'phpdoc', 'vim', 'vimdoc', 'bash', 'javascript',
   'typescript', 'java', 'html', 'php_only'
 }
 

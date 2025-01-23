@@ -11,7 +11,7 @@ return {
     set('n', '<leader>pf', builtin.find_files, {})
     set('n', '<C-p>', builtin.git_files, {})
     set('n', '<leader>ps', function()
-      builtin.grep_string { search = vim.fn.input '> '} 
+      builtin.grep_string { search = vim.fn.input '> ' }
     end, {})
     set('n', '<C-f>', builtin.live_grep, {})
   end

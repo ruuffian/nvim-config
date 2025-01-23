@@ -30,10 +30,23 @@ set('i', '<C-c>', '<Esc>', {})
 set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 
 -- LSP
+local vset = vim.keymap.set
+vset('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+vset('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+vset('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = ruuffian,
   callback = function(e)
     local opts = { buffer = e.buf }
+      vset('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+      vset('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+      vset('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+      vset('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+      vset('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+      vset('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+      vset('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+      vset('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+      vset({'n', 'x'}, '<leader>f', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+      vset('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end
 })
