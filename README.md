@@ -8,3 +8,8 @@ everytime I ssh to a new machine
 - luarocks
 - ripgrep
 - sharkdp/fd
+
+LSP Dependencies:
+
+- node22
+- php 8.1
