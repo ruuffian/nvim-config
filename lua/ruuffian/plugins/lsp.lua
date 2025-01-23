@@ -1,5 +1,4 @@
-local lsps = { 'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'vimls',
-  'intelephense', 'kotlin_language_server' }
+local lsps = { 'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'intelephense' }
 
 return {
   'neovim/nvim-lspconfig',
