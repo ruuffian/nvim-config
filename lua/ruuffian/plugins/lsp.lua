@@ -1,4 +1,4 @@
-local lsps = { 'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'intelephense' }
+local lsps = { 'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'intelephense', 'jsonls' }
 
 return {
   'neovim/nvim-lspconfig',
