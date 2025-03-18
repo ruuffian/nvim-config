@@ -1,5 +1,6 @@
 local lsps = { 
-  'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'intelephense', 'jsonls', 'svelte' 
+  'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'intelephense', 'jsonls', 
+  'svelte', 'pylsp', 'eslint'
 }
 
 return {
