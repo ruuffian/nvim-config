@@ -11,9 +11,8 @@ return {
     'L3MON4D3/LuaSnip',
   },
   config = function()
-    local cmp = require'cmp'
-    local lspconfig = require'lspconfig'
-    local lsp_cap = require'cmp_nvim_lsp'.default_capabilities()
+    local lspconfig = require 'lspconfig'
+    local lsp_cap = require 'cmp_nvim_lsp'.default_capabilities()
     lspconfig.clangd.setup {
       capatablities = lsp_cap,
     }
@@ -39,7 +38,7 @@ return {
         },
       },
       sources = {
-        { name = 'luasnip', group_index = 1 },
+        { name = 'luasnip',  group_index = 1 },
         { name = 'nvim_lsp', group_index = 2 },
       },
       mapping = {
