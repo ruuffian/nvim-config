@@ -19,6 +19,9 @@ return {
     lspconfig.lua_ls.setup {
       capabilities = lsp_cap,
     }
+    lspconfig.ruff.setup {
+      capabilities = lsp_cap,
+    }
     local cmp = require('cmp')
     cmp.setup {
       snippet = {
