@@ -23,6 +23,9 @@ return {
       capabilities = lsp_cap,
       settings = {
         basedpyright = {
+          analysis = {
+            diagnosticMode = 'workspace',
+          },
           -- Using Ruff's import organizer
           disableOrganizeImports = true,
         },
