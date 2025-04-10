@@ -1,66 +1,64 @@
-local lsps = { 
-  'lua_ls', 'bashls', 'ts_ls', 'tailwindcss', 'intelephense', 'jsonls', 
-  'svelte', 'pylsp', 'eslint', 'clangd'
-}
-
+--[[
+  Configured LSPs:
+    - clangd
+    - lua-language-server
+--]]
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
     'hrsh7th/nvim-cmp',
     'hrsh7th/cmp-nvim-lsp',
     'L3MON4D3/LuaSnip',
   },
   config = function()
-    local lsp_cap = require('cmp_nvim_lsp').default_capabilities()
-    require('mason').setup {}
-    require('mason-lspconfig').setup {
-      ensure_installed = lsps,
-      handlers = {
-        function(server_name)
-          require('lspconfig')[server_name].setup {
-            capabilities = lsp_cap,
-          }
-        end,
-        lua_ls = function()
-          require('lspconfig').lua_ls.setup({
-            capabilities = lsp_cap,
-            settings = {
-              Lua = {
-                runtime = {
-                  version = 'LuaJIT'
-                },
-                diagnostics = {
-                  globals = { 'vim' },
-                },
-                workspace = {
-                  library = {
-                    vim.env.VIMRUNTIME,
-                  }
-                }
-              }
-            }
-          })
-        end
-      },
+    local cmp = require'cmp'
+    local lspconfig = require'lspconfig'
+    local lsp_cap = require'cmp_nvim_lsp'.default_capabilities()
+    lspconfig.clangd.setup {
+      capatablities = lsp_cap,
+    }
+    lspconfig.lua_ls.setup {
+      capabilities = lsp_cap,
     }
     local cmp = require('cmp')
     cmp.setup {
-      sources = {
-        { name = 'nvim_lsp' },
-      },
-      mapping = cmp.mapping.preset.insert({
-        -- Enter key confirms completion item
-        ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
-        -- Ctrl + space triggers completion menu
-        ['<C-Space>'] = cmp.mapping.complete(),
-      }),
       snippet = {
         expand = function(args)
           require('luasnip').lsp_expand(args.body)
         end,
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+      view = {
+        entries = {
+          name = 'custom',
+          selection_order = 'near_cursor',
+          follow_cursor = 'true',
+        },
+      },
+      sources = {
+        { name = 'luasnip', group_index = 1 },
+        { name = 'nvim_lsp', group_index = 2 },
+      },
+      mapping = {
+        ["<C-y>"] = cmp.mapping(
+          cmp.mapping.confirm({
+            select = true,
+            behavior = cmp.ConfirmBehavior.Insert,
+          }),
+          { "i", "c" }
+        ),
+        ["<C-n>"] = cmp.mapping.select_next_item({
+          behavior = cmp.ConfirmBehavior.Insert,
+        }),
+        ["<C-p>"] = cmp.mapping.select_prev_item({
+          behavior = cmp.ConfirmBehavior.Insert,
+        }),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-5),
+        ["<C-f>"] = cmp.mapping.scroll_docs(5),
+        ["<C-q>"] = cmp.mapping.abort(),,
       },
     }
   end
