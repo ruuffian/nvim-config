@@ -58,7 +58,7 @@ return {
         }),
         ["<C-b>"] = cmp.mapping.scroll_docs(-5),
         ["<C-f>"] = cmp.mapping.scroll_docs(5),
-        ["<C-q>"] = cmp.mapping.abort(),,
+        ["<C-q>"] = cmp.mapping.abort(),
       },
     }
   end
