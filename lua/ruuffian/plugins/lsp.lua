@@ -19,6 +19,15 @@ return {
     lspconfig.lua_ls.setup {
       capabilities = lsp_cap,
     }
+    lspconfig.basedpyright.setup {
+      capabilities = lsp_cap,
+      settings = {
+        basedpyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
+      },
+    }
     lspconfig.ruff.setup {
       capabilities = lsp_cap,
     }
@@ -45,7 +54,7 @@ return {
         { name = 'nvim_lsp', group_index = 2 },
       },
       mapping = {
-        ["<C-y>"] = cmp.mapping(
+        ["<CR>"] = cmp.mapping(
           cmp.mapping.confirm({
             select = true,
             behavior = cmp.ConfirmBehavior.Insert,
