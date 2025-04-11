@@ -34,6 +34,9 @@ return {
     lspconfig.ruff.setup {
       capabilities = lsp_cap,
     }
+    lspconfig.bashls.setup {
+      capabilities = lsp_cap,
+    }
     local cmp = require('cmp')
     cmp.setup {
       snippet = {
