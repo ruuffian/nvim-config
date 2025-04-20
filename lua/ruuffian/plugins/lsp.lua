@@ -18,6 +18,19 @@ return {
     }
     lspconfig.lua_ls.setup {
       capabilities = lsp_cap,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { 'vim' },
+          },
+        },
+      },
+    }
+    lspconfig.ocamllsp.setup {
+      capabilities = lsp_cap,
+    }
+    lspconfig.ts_ls.setup {
+      capatablities = lsp_cap,
     }
     lspconfig.basedpyright.setup {
       capabilities = lsp_cap,
