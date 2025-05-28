@@ -1,4 +1,4 @@
-local set = vim.api.nvim_set_keymap
+local set = vim.keymap.set
 -- NetRW
 --set('n', '<leader>pv', ':Ex<CR>', {})
 
@@ -7,6 +7,9 @@ set('n', '<C-h>', '<C-w>h', {})
 set('n', '<C-j>', '<C-w>j', {})
 set('n', '<C-k>', '<C-w>k', {})
 set('n', '<C-l>', '<C-w>l', {})
+
+set('n', '<C-p>', ':vsplit<CR>', {})
+set('n', '<C-n>', ':split<CR>', {})
 
 -- Moving lines
 set('v', 'J', ":m '>+1<CR>gv=gv", {})
