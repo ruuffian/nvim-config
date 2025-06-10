@@ -6,3 +6,5 @@ require 'ruuffian.remap'
 require 'ruuffian.set'
 
 require 'ruuffian.lazy_init'
+
+require 'ruuffian.colors'
