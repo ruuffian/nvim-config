@@ -13,8 +13,45 @@ return {
   config = function()
     local lspconfig = require 'lspconfig'
     local lsp_cap = require 'cmp_nvim_lsp'.default_capabilities()
+    lspconfig.ansiblels.setup {
+      capabilities = lsp_cap,
+      filetypes = {
+        "yaml",
+      },
+      settings = {
+        ansible = {
+          ansible = {
+            path = "ansible",
+            useFullyQualifiedCollectionNames = true
+          },
+          ansibleLint = {
+            enabled = true,
+            path = "ansible-lint"
+          },
+          executionEnvironment = {
+            enabled = false
+          },
+          python = {
+            interpreterPath = "python"
+          },
+          completion = {
+            provideRedirectModules = true,
+            provideModuleOptionAliases = true
+          }
+        },
+      },
+    }
+    lspconfig.nixd.setup {
+      capabilities = lsp_cap,
+    }
+    lspconfig.yamlls.setup {
+      capabilities = lsp_cap,
+      settings = {
+        yaml = { keyOrdering = false },
+      },
+    }
     lspconfig.clangd.setup {
-      capatablities = lsp_cap,
+      capabilities = lsp_cap,
     }
     lspconfig.lua_ls.setup {
       capabilities = lsp_cap,
@@ -30,7 +67,7 @@ return {
       capabilities = lsp_cap,
     }
     lspconfig.ts_ls.setup {
-      capatablities = lsp_cap,
+      capabilities = lsp_cap,
     }
     lspconfig.basedpyright.setup {
       capabilities = lsp_cap,
@@ -48,6 +85,9 @@ return {
       capabilities = lsp_cap,
     }
     lspconfig.bashls.setup {
+      capabilities = lsp_cap,
+    }
+    lspconfig.gopls.setup {
       capabilities = lsp_cap,
     }
     local cmp = require('cmp')
