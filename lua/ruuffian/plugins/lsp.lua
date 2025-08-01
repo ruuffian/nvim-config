@@ -69,6 +69,12 @@ return {
     lspconfig.ts_ls.setup {
       capabilities = lsp_cap,
     }
+    lspconfig.svelte.setup {
+      capabilities = lsp_cap,
+    }
+    lspconfig.tailwindcss.setup {
+      capabilities = lsp_cap,
+    }
     lspconfig.basedpyright.setup {
       capabilities = lsp_cap,
       settings = {
